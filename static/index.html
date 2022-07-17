@@ -1,46 +1,80 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is CheverJohn's self website.">
-    <!-- Blog -->
-    <title> Welcome to CheverJohn's Blog </title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43DRFTYG72"></script>
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is CheverJohn's self website.">
+        <!-- Blog -->
+        <title> Welcome to CheverJohn's Blog </title>
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-43DRFTYG72"></script>
+        <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-43DRFTYG72');
     </script>
-    
-    <style>
+        <style>
         h1 {
             text-align: center;
         }
-
-        h2 {
-            text-align: center;
-        }
-
-        div {
-            text-align: center;
-        }
-
-        p {
-            text-align: center;
-        }
     </style>
-</head>
+    </head>
 
-<body>
-    <h1>CheverJohn's Blog</h1>
-    <h2>Author: CheverJohn</h2>
-    <p>I want to make a new system~</p>
-</body>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="./index.html"> HOME </a></li>
+                    <li><a href="./about.html"> ABOUT </a></li>
+                    <li><a href="./blog.html"> BLOG </a></li>
+                    <li><a href="./contact.html"> CONTACT </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1>CheverJohn's Blog</h1>
+            <h2>Latest Posts ...</h2>
+            <section>
+                <article id="saddle-height">
+                    <h3>Build the environment for writing flutter's integration
+                        tests</h2>
+                    <p>There's a lot to this section, but I thought I'd start
+                        with a couple of brief comments. The main
+                        purpose of this blog is to build a flutter integration
+                        test writing environment that relies
+                        entirely on nvim. </p>
+                    <p><a href="#">Read more ...</a></p>
+                </article>
+            </section>
+        </main>
+        <aside>
+            <section>
+                <h3 id="about-author">About the Author</h3>
+                <img src="https://cdn.mr8god.cn/img/self_photo_251x335.jpg"
+                    alt="the author of this blog">
+                <p>A University graduate and an open-source enthusiast. My
+                    guideline is to change the world with code! </p>
+            </section>
+            <section>
+                <h3 id="latest-posts">Latest Posts</h3>
+                <ul>
+                    <li><a href="#">Post #5</a></li>
+                    <li><a href="#">Post #4</a></li>
+                    <li><a href="#">Post #3</a></li>
+                    <li><a href="#">Post #2</a></li>
+                    <li><a href="#">Post #1</a></li>
+                </ul>
+            </section>
+        </aside>
+        <footer>
+            <p class="text-center"> Copyright &copy; 2022 CheverJohn.me</p>
+        </footer>
+    </body>
 
 </html>
