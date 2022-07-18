@@ -1,6 +1,7 @@
 # 江某人的个人网站
 
-[![Chinese version](http://cdn.mr8god.cn/img/chinese.svg)](README-zh.md)[![English version](https://cdn.mr8god.cn/img/english.svg)](README.md)
+[![Chinese version](http://cdn.mr8god.cn/img/chinese.svg)](README-zh.md)  [![English version](https://cdn.mr8god.cn/img/english.svg)](README.md)
+
 你可以通过点击这个图标来切换不同语言版本的 README.md 文件。
 
 至于为什么要自称江某人呢？这得从一个高中数学老师说起……
