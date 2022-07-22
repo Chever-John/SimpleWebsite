@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  webservice:
+    image: html-server-image:v1
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      website123:
+
+networks:
+  website123:
+    driver: bridge
+
