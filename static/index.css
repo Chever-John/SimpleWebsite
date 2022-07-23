@@ -21,10 +21,12 @@ header {
 }
 
 .article-title-1 {
+  font-weight: 650;
   margin: 8px 0;
 }
 
 .article-title-2 {
+  font-weight: 550;
   margin: 4px 0;
 }
 
@@ -58,4 +60,14 @@ header {
 .menu a:hover {
   background-color: black;
   color: white;
+}
+
+/* jcw */
+.author-photo {
+  background-position: center;
+  margin: 8px auto;
+  background-image: url("https://cdn.mr8god.cn/img/self_photo_251x335.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
 }
