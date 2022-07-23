@@ -1,18 +1,61 @@
+/* reset default style */
 * {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
+/* about page layout */
 .container {
   width: 760px;
   margin: 0 auto;
 }
 
+header {
+  width: 100%;
+  height: 40px;
+}
+
+.article-title {
+  margin: 12px 0;
+}
+
+.article-title-1 {
+  margin: 8px 0;
+}
+
+.article-title-2 {
+  margin: 4px 0;
+}
+
+/* about text style */
 .text-indent {
   text-indent: 2em;
 }
 
 .common-text {
   margin: 8px;
+}
+
+/* about menu */
+.menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.menu > .button {
+  color: black;
+  display: inline-block;
+}
+
+.menu a {
+  color: black;
+}
+
+.menu a:hover {
+  background-color: black;
+  color: white;
 }
