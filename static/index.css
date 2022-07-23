@@ -5,6 +5,14 @@
  }
 
 .container {
-  width: 600px;
+  width: 760px;
   margin: 0 auto;
+}
+
+.text-indent {
+  text-indent: 2em;
+}
+
+.common-text {
+  margin: 8px;
 }
