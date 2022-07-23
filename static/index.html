@@ -1,80 +1,88 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This is CheverJohn's self website." />
+    <!-- Blog -->
+    <title>Welcome to CheverJohn's Website</title>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-43DRFTYG72"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="This is CheverJohn's self website.">
-        <!-- Blog -->
-        <title> Welcome to CheverJohn's Website </title>
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async
-            src="https://www.googletagmanager.com/gtag/js?id=G-43DRFTYG72"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-43DRFTYG72');
+      gtag("config", "G-43DRFTYG72");
     </script>
-        <style>
-        h1 {
-            text-align: center;
-        }
+    <style>
+      h1 {
+        text-align: center;
+      }
     </style>
-    </head>
+  </head>
 
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="./index.html"> HOME </a></li>
-                    <li><a href="./about.html"> ABOUT </a></li>
-                    <li><a href="./blog/blog.html"> BLOG </a></li>
-                    <li><a href="./contact.html"> CONTACT </a></li>
-                </ul>
-            </nav>
-        </header>
+  <body>
+    <div class="container">
+      <header>
+        <div class="menu">
+          <span class="button"><a href="./index.html"> HOME </a></span>
+          <span class="button"><a href="./about.html"> ABOUT </a></span>
+          <span class="button"><a href="./blog/blog.html"> BLOG </a></span>
+          <span class="button"><a href="./contact.html"> CONTACT </a></span>
+        </div>
+      </header>
 
-        <main>
-            <h1>CheverJohn's Blog</h1>
-            <h2>Latest Posts ...</h2>
-            <section>
-                <article id="saddle-height">
-                    <h3>Build the environment for writing flutter's integration
-                        tests</h3>
-                    <p>There's a lot to this section, but I thought I'd start
-                        with a couple of brief comments. The main
-                        purpose of this blog is to build a flutter integration
-                        test writing environment that relies
-                        entirely on nvim. </p>
-                    <p><a href="./blog/22/07/17/Build_The_Env_For_Writting_Flutter_Integration_Tests_en.html">Read more ...</a></p>
-                </article>
-            </section>
-        </main>
-        <aside>
-            <section>
-                <h3 id="about-author">About the Author</h3>
-                <img src="https://cdn.mr8god.cn/img/self_photo_251x335.jpg"
-                    alt="the author of this blog">
-                <p>A University graduate and an open-source enthusiast. My
-                    guideline is to change the world with code! </p>
-            </section>
-            <section>
-                <h3 id="latest-posts">Latest Posts</h3>
-                <ul>
-                    <li><a href="#">Post #5</a></li>
-                    <li><a href="#">Post #4</a></li>
-                    <li><a href="#">Post #3</a></li>
-                    <li><a href="#">Post #2</a></li>
-                    <li><a href="#">Post #1</a></li>
-                </ul>
-            </section>
-        </aside>
-        <footer>
-            <p class="text-center"> Copyright &copy; 2022 CheverJohn.me</p>
-        </footer>
-    </body>
-
+      <main>
+        <h1 class="article-title">CheverJohn's Blog</h1>
+        <h2 class="article-title-1">Latest Posts ...</h2>
+        <section>
+          <h3 class="article-title-2">
+            Build the environment for writing flutter's integration tests
+          </h3>
+          <p class="common-text text-indent">
+            There's a lot to this section, but I thought I'd start with a couple
+            of brief comments. The main purpose of this blog is to build a
+            flutter integration test writing environment that relies entirely on
+            nvim.
+          </p>
+          <p>
+            <a
+              href="./blog/22/07/17/Build_The_Env_For_Writting_Flutter_Integration_Tests_en.html"
+              >Read more ...</a
+            >
+          </p>
+        </section>
+      </main>
+      <aside>
+        <section>
+          <h3 class="article-title-2">About the Author</h3>
+          <div class="author-photo"></div>
+          <p class="common-text text-indent">
+            A University graduate and an open-source enthusiast. My guideline is
+            to change the world with code!
+          </p>
+        </section>
+        <section>
+          <h3 class="article-title-2">Latest Posts</h3>
+          <ul>
+            <li><a href="#">Post #5</a></li>
+            <li><a href="#">Post #4</a></li>
+            <li><a href="#">Post #3</a></li>
+            <li><a href="#">Post #2</a></li>
+            <li><a href="#">Post #1</a></li>
+          </ul>
+        </section>
+      </aside>
+      <footer>
+        <p class="text-center">Copyright &copy; 2022 CheverJohn.me</p>
+      </footer>
+    </div>
+  </body>
 </html>
