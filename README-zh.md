@@ -114,6 +114,8 @@ docker run -d -p 80:80 html-server-image:v1
 
 ![myPersonalWebsiteArch2](assets/excalidraw/myPersonalWebsiteArch3.png)
 
+简单用言语介绍一下，这一次我尝试使用了 Apache APISIX 云原生网关来部署我的个人网站。这里边 Apache APISIX、Apache Dashboard、etcd、html-server 都是 Docker 镜像运行的容器。其中 html-server 是我自己自定义创建的镜像容器。其构建的方法可以往上看。
+
 ## TODO
 
 ### 云原生
