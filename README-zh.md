@@ -44,7 +44,7 @@ ns2.vultr.com
 
 买了服务器之后，需要注意的是，直接使用自带的 DNS 解析服务，构建一下即可。
 
-### NGINX 配置
+### 第一种部署方式：NGINX 配置
 
 使用 **NGINX** 作为反向代理服务器，将路由反向代理到 index.html，仅此而已。可以参考这个[链接](https://www.vultr.com/zh/docs/how-to-install-and-configure-nginx-on-a-vultr-cloud-server/#:~:text=Encrypt%20guide%20here.-,Configure%20Nginx%20as%20a%20Reverse%20Proxy,-Nginx%20can%20work)，获取更多的信息。
 
@@ -77,7 +77,7 @@ server {
 }
 ```
 
-### API 网关部署
+### 第二种部署方式：API 网关部署（简述）
 
 #### 编写个人网站的 Dockerfile
 
@@ -106,9 +106,9 @@ docker run -d -p 80:80 html-server-image:v1
 
 直接根据官网的 Docker compose 方式安装即可。
 
-### 绝对可以复现的部署方式
+### 绝对可以复现的部署方式（绝对详细）
 
-好啦好啦，上面讲的这些，绝对是不可能让你跟我一样，完全搭建出我的[网站](www.cheverjohn.me)的。接下来输出干货。
+好啦好啦，上面讲的这些，绝对是不可能让你跟我一样，完全搭建出我的[网站](http://cheverjohn.me/)的。接下来输出干货。
 
 #### 我的网站的整体部署架构
 
@@ -116,11 +116,143 @@ docker run -d -p 80:80 html-server-image:v1
 
 简单用言语介绍一下，这一次我尝试使用了 Apache APISIX 云原生网关来部署我的个人网站。这里边 Apache APISIX、Apache Dashboard、etcd、html-server 都是 Docker 镜像运行的容器。其中 html-server 是我自己自定义创建的镜像容器。其构建的方法可以往上看。
 
+#### 构建后端服务镜像（html-server）
+
+首先 clone 我存放在 GitHub 上的项目。
+
+```bash
+git clone git@github.com:Chever-John/SimpleWebsite.git
+```
+
+然后进入到仓库里。
+
+```bash
+cd SimpleWebsite
+```
+
+查看 Dockerfile 文件确认无误。
+
+```bash
+cat Dockerfile
+<<<!Output>>>
+FROM nginx:alpine
+COPY ./static /usr/share/nginx/html
+```
+
+确认无误后运行镜像构建命令。
+
+```bash
+docker build -t html-server-image:v1 .
+```
+
+#### 安装 APISIX、APISIX Dashboard
+
+clone 官方提供的 APISIX-Docker 项目。
+
+```bash
+git clone git@github.com:apache/apisix-docker.git
+```
+
+然后进入到 example 的目录里。
+
+```bash
+cd apisix-docker/example
+```
+
+由于这边我需要修改 APISIX 这个网关的默认服务端口，从 9080 改到 80，所以我们需要修改一下 docker-compose.yml 文件。
+
+这中间的改动如图所示：
+
+![9080to80](./assets/ScreenCut/9080to80.png)
+
+可以看见，只是将原先的 `9080:9080` 改为 `80:9080`，仅此而已。
+
+修改完之后，开始运行容器，运行命令的位置应该是在 Dockerfile 文件所在的目录下，命令如下：
+
+```bash
+docker-compose -p docker-apisix up -d
+```
+
+#### 配置 Grafana（可选项）
+
+这个需要额外配置，需要修改一下 `apisix-docker/example/dashboard_conf/conf.yaml` 文件。具体修改部分参照下图：
+
+![enableGrafana](./assets/ScreenCut/enableGrafana.png)
+
+然后 APISIX-Dashboard 就可以正常显示了。
+
+#### 然后配置上游
+
+```json
+{
+  "nodes": [
+    {
+      "host": "xxx.xxx.xxx.xxx",
+      "port": 81,
+      "weight": 1
+    },
+    {
+      "host": "xxx.xxx.xxx.xxx",
+      "port": 82,
+      "weight": 1
+    },
+    {
+      "host": "xxx.xxx.xxx.xxx",
+      "port": 83,
+      "weight": 1
+    },
+    {
+      "host": "xxx.xxx.xxx.xxx",
+      "port": 84,
+      "weight": 1
+    }
+  ],
+  "timeout": {
+    "connect": 6,
+    "send": 6,
+    "read": 6
+  },
+  "type": "roundrobin",
+  "scheme": "http",
+  "pass_host": "pass",
+  "name": "websiteUpstream",
+  "keepalive_pool": {
+    "idle_timeout": 60,
+    "requests": 1000,
+    "size": 320
+  }
+}
+```
+
+#### 配置路由
+
+```json
+{
+  "uri": "/*",
+  "name": "websiteRoute",
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "HEAD",
+    "OPTIONS",
+    "CONNECT",
+    "TRACE"
+  ],
+  "upstream_id": "418814452935164940",
+  "status": 1
+}
+```
+
+然后一切应该就正常了。
+
 ## TODO
 
 ### 云原生
 
-- [ ] Docker 部署：将前端项目打包好，以 Docker 镜像的方式进行部署；
+- [x] Docker 部署：将前端项目打包好，以 Docker 镜像的方式进行部署；
 - [ ] 在前置任务完成的基础上，尝试集群部署。
 
 #### API 网关选型
