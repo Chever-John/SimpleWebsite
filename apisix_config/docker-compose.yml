@@ -1,50 +1,28 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 version: "3"
 
 services:
-  html-server-image: 
-    image: html-server-image:${TAG}
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-  webservice81:
-    image: html-server-image:${TAG}
-    restart: always
-    ports:
-      - "81:80/tcp"
-    networks:
-      website:
-
-  webservice82:
-    image: html-server-image:${TAG}
-    restart: always
-    ports:
-      - "82:80/tcp"
-    networks:
-      website:
-
-  webservice83:
-    image: html-server-image:${TAG}
-    restart: always
-    ports:
-      - "83:80/tcp"
-    networks:
-      website:
-
-  webservice84:
-    image: html-server-image:${TAG}
-    restart: always
-    ports:
-      - "84:80/tcp"
-    networks:
-      website:
-
-
   apisix-dashboard:
     image: apache/apisix-dashboard:2.13-alpine
     restart: always
     volumes:
-    - ./apisix_config/dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml
+    - ./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml
     ports:
     - "9000:9000"
     networks:
@@ -54,8 +32,8 @@ services:
     image: apache/apisix:2.14.1-alpine
     restart: always
     volumes:
-      - ./apisix_config/apisix_log:/usr/local/apisix/logs
-      - ./apisix_config/apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix_log:/usr/local/apisix/logs
+      - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
     depends_on:
       - etcd
     ##network_mode: host
@@ -86,7 +64,7 @@ services:
     image: nginx:1.19.0-alpine
     restart: always
     volumes:
-      - ./apisix_config/upstream/web1.conf:/etc/nginx/nginx.conf
+      - ./upstream/web1.conf:/etc/nginx/nginx.conf
     ports:
       - "9081:80/tcp"
     environment:
@@ -98,7 +76,7 @@ services:
     image: nginx:1.19.0-alpine
     restart: always
     volumes:
-      - ./apisix_config/upstream/web2.conf:/etc/nginx/nginx.conf
+      - ./upstream/web2.conf:/etc/nginx/nginx.conf
     ports:
       - "9082:80/tcp"
     environment:
@@ -110,7 +88,7 @@ services:
     image: prom/prometheus:v2.25.0
     restart: always
     volumes:
-      - ./apisix_config/prometheus_conf/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_conf/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     networks:
@@ -122,15 +100,13 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "./apisix_config/grafana_conf/provisioning:/etc/grafana/provisioning"
-      - "./apsiix_config/grafana_conf/dashboards:/var/lib/grafana/dashboards"
-      - "./apisix_config/grafana_conf/config/grafana.ini:/etc/grafana/grafana.ini"
+      - "./grafana_conf/provisioning:/etc/grafana/provisioning"
+      - "./grafana_conf/dashboards:/var/lib/grafana/dashboards"
+      - "./grafana_conf/config/grafana.ini:/etc/grafana/grafana.ini"
     networks:
       apisix:
 
 networks:
-  website:
-    driver: bridge
   apisix:
     driver: bridge
 
