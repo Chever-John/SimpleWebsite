@@ -48,7 +48,7 @@ header {
   justify-content: space-around;
 }
 
-.menu > .button {
+.menu>.button {
   color: black;
   display: inline-block;
 }
@@ -66,7 +66,7 @@ header {
 .author-photo {
   background-position: left;
   margin: 8px auto;
-  background-image: url("https://cdn.mr8god.cn/img/self_photo_251x335.jpg");
+  background-image: url("https://cdn.mr8god.cn/img/avatar-2022-08-07-small.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   height: 300px;
@@ -89,9 +89,11 @@ header {
   margin-right: 2em;
   margin-top: 1em;
 }
-.clearfix{
+
+.clearfix {
   clear: both;
 }
+
 /* Contact */
 h2 {
   display: block;
@@ -139,6 +141,9 @@ h2 {
   margin-bottom: 1em;
   margin-right: 2em;
   margin-top: 1em;
+  background-image: url("https://cdn.mr8god.cn/img/avatar-2022-08-07-small.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .flex-self-description {
@@ -149,4 +154,3 @@ h2 {
 .flex-contact {
   width: 660px;
 }
-
