@@ -1,15 +1,45 @@
 version: "3"
 
 services:
-  webservice:
+  html-server-image: 
+    image: html-server-image:${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  webservice81:
     image: html-server-image:v1
     restart: always
     ports:
-      - "80:80"
+      - "81:80/tcp"
     networks:
-      website123:
+      website:
+
+  webservice82:
+    image: html-server-image:v1
+    restart: always
+    ports:
+      - "82:80/tcp"
+    networks:
+      website:
+
+  webservice83:
+    image: html-server-image:v1
+    restart: always
+    ports:
+      - "83:80/tcp"
+    networks:
+      website:
+
+  webservice84:
+    image: html-server-image:v1
+    restart: always
+    ports:
+      - "84:80/tcp"
+    networks:
+      website:
 
 networks:
-  website123:
+  website:
     driver: bridge
 
