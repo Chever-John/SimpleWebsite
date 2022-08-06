@@ -72,3 +72,18 @@ header {
   background-repeat: no-repeat;
   height: 300px;
 }
+
+/* Background Image */
+.background-image {
+  width: 760px;
+  height: 600px;
+  border-radius: 6px;
+
+  margin-bottom: 1em;
+  margin-right: 2em;
+  margin-top: 1em;
+
+  background-image: url("https://cdn.mr8god.cn/img/IMG_20201007_092604.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
