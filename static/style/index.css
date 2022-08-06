@@ -62,9 +62,10 @@ header {
   color: white;
 }
 
-/* jcw */
+/* jcw's photo */
 .author-photo {
-  background-position: center;
+  border: 2px solid black;
+  background-position: left;
   margin: 8px auto;
   background-image: url("https://cdn.mr8god.cn/img/self_photo_251x335.jpg");
   background-size: contain;
