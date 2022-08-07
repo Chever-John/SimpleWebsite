@@ -94,7 +94,7 @@ header {
   clear: both;
 }
 
-/* Contact */
+/* ACTIVITY */
 h2 {
   display: block;
   font-size: 1.5em;
@@ -119,7 +119,7 @@ h2 {
   align-items: center;
 }
 
-.flex-container-contact {
+.flex-section {
   margin-inline-start: 4.5em;
   margin-inline-end: 4.5em;
   display: -webkit-flex;
@@ -151,6 +151,10 @@ h2 {
   margin-top: 1em;
 }
 
-.flex-contact {
+.flex-sections {
   width: 660px;
+}
+
+.flex-company {
+  justify-content: space-between;
 }
