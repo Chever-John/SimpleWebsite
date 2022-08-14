@@ -276,6 +276,36 @@ Then everything is OK.
 
 Then everything is OK.
 
+## Version Updates
+
+### docker-compose
+
+If I update the site's content, for example, I added a blog, then we need to carry out the version of the site system iterative update ah. There is a lot of learning here, blue and green release la, canary release la, grayscale la, one said an I am not proficient in this, purely probably know that there are some of these concepts, but my site currently will only be the most straightforward "stop " to "restart".
+
+We can use docker-compose to do quick iterative version updates.
+
+The docker-compose file is located in this [directory] (.docker-compose.yaml)
+
+Step 1: First, make a version with the following command.
+
+```bash
+export TAG=x.x.x
+```
+
+Step 2: Deploy. The deployment command is as follows.
+
+```bash
+docker-compose -p website up -d --build
+```
+
+Step 3 (optional): If you have already deployed, you must stop the container with the following command.
+
+```bash
+docker-compose -p website down
+```
+
+Then you can repeat the second step.
+
 ## TODO
 
 ### Cloud-Native

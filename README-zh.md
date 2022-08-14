@@ -248,6 +248,36 @@ docker-compose -p docker-apisix up -d
 
 然后一切应该就正常了。
 
+## 版本迭代更新
+
+### docker-compose
+
+如果我更新了网站的内容，比如说我增加了一篇博客，那我们需要进行网站系统的版本迭代更新啊，这里边有很多学问，蓝绿发布啦、金丝雀发布啦、灰度啦，有一说一我对此不精通，纯粹是大概知道有这么些概念，但我网站目前采用的只会是最简单的“停止”到“重启”。
+
+我们可以使用 docker-compose 来进行版本的快速迭代更新。
+
+docker-compose 文件位于该[目录](.docker-compose.yaml)
+
+第一步：首先制定版本，命令如下：
+
+```bash
+export TAG=x.x.x
+```
+
+第二步：部署，部署命令如下：
+
+```bash
+docker-compose -p website up -d --build
+```
+
+第三步（可选）：如果已经部署了，需要先停止容器，命令如下：
+
+```bash
+docker-compose -p website down
+```
+
+然后可以重复第二步了。
+
 ## TODO
 
 ### 云原生
@@ -275,4 +305,3 @@ docker-compose -p docker-apisix up -d
 #### 灰度发布/金丝雀发布
 
 - [ ] 如小标题，要用 nginx 做好**灰度发布**
-
