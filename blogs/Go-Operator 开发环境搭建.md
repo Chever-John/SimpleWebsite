@@ -33,7 +33,9 @@ registry 是 docker 官方的用来自建本地私有仓库的容器项目。这
 
 然后你的本地，端口为 5000 的自建仓库就建好了。
 
-接下来开始修改 Operator-sdk 的默认配置，使其更加适合我们的开发环境。
+接下来首先安装 Operator-sdk，以及初始化一个项目。请参考 Operator-sdk 的[官方文档](https://sdk.operatorframework.io/docs/building-operators/golang/)。
+
+然后开始修改 Operator-sdk 的默认配置，使其更加适合我们的开发环境。
 
 ## 修改默认的 Go-Operator 的 Makefile
 
