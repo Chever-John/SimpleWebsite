@@ -123,7 +123,7 @@ services:
       - "3000:3000"
     volumes:
       - "./apisix_config/grafana_conf/provisioning:/etc/grafana/provisioning"
-      - "./apsiix_config/grafana_conf/dashboards:/var/lib/grafana/dashboards"
+      - "./apisix_config/grafana_conf/dashboards:/var/lib/grafana/dashboards"
       - "./apisix_config/grafana_conf/config/grafana.ini:/etc/grafana/grafana.ini"
     networks:
       apisix:
