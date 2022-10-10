@@ -51,7 +51,7 @@ conf:
     access_control_allow_headers: "Authorization"
     access_control-allow_methods: "*"
     x_frame_options: "deny"
-    content_security_policy: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src 198.13.62.15:3000"
+    content_security_policy: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src 45.76.99.217:3000"
 
 authentication:
   secret:
