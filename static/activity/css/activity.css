@@ -19,6 +19,15 @@ header {
 footer {
   margin: 30px 0;
 }
+
+ul {
+  margin: 5px 0 20px;
+}
+
+.common-section {
+  margin: 20px 0 5px;
+}
+
 .article-title {
   margin: 12px 0;
 }
