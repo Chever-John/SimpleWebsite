@@ -9,7 +9,12 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="black">{{ msg }}</h1>
+
+    <div class="container">
+      <img src="/src/assets/mtfuji.jpeg" alt="Chever John" />
+    </div>
+
     <h3>
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
@@ -33,6 +38,16 @@ h3 {
 .greetings h1,
 .greetings h3 {
   text-align: center;
+}
+
+/* CSS样式 */
+.container {
+  text-align: center;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
 }
 
 @media (min-width: 1024px) {
