@@ -1,6 +1,6 @@
 # CheverJohn's website
 
-[![jaywcjlove/sb](https://jaywcjlove.github.io/sb/lang/chinese.svg)](README-zh.md)  [![English version]([https://cdn.mr8god.cn/img/english.svg)](https://wangchujiang.com/sb/lang/english.svg)](README.md)
+[![Chinese version](https://jaywcjlove.github.io/sb/lang/chinese.svg)](README-zh.md)  [![English version](https://jaywcjlove.github.io/sb/lang/english.svg)](README.md)
 
 You can click on the badges to jump to the different language versions of the README file.
 
